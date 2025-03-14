@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import { CiMenuFries } from "react-icons/ci";
 import { Button } from "@/components/ui/button";
+// import Image from "next/image";
 
 const links = [
   { href: "/", label: "Home" },
@@ -16,37 +17,44 @@ const links = [
 
 const MobileNav = () => {
   const pathname = usePathname();
+
   return (
     <Sheet>
+      {/* Mobile Menu Trigger */}
       <SheetTrigger className="flex justify-center items-center">
         <Button className="bg-blue-600 hover:bg-blue-900 p-2 rounded-md">
-          <CiMenuFries className="text-[36px] text-black" />
+          <CiMenuFries className="text-[36px] text-white" />
         </Button>
       </SheetTrigger>
+
+      {/* Mobile Menu Content */}
       <SheetContent
         side="right"
-        className="flex flex-col bg-[#F5F0E8] p-6 shadow-lg"
+        className="flex flex-col bg-[#F5F0E8] p-6 shadow-lg h-full"
       >
-        <div className="mb-8 text-center text-2xl">
+        {/* Logo Section */}
+        {/* <div className="flex justify-center mb-8">
           <Link href="/">
-            <div className="flex items-center space-x-2">
-              <div className="relative w-10 h-10">
-                <div className="absolute inset-0 w-10 h-10 bg-yellow-500 transform rotate-45"></div>
-                <div className="absolute inset-0 w-8 h-8 bg-blue-600 transform rotate-45 left-1 top-1"></div>
-              </div>
-              <h1>PlumPro</h1>
-            </div>
+            <Image
+              src="/assets/logo.png"
+              width={120}
+              height={40}
+              alt="PlumPro Logo"
+              priority
+            />
           </Link>
-        </div>
-        <nav className="flex flex-col gap-6">
-          {links.map((link, index) => (
+        </div> */}
+
+        {/* Navigation Links */}
+        <nav className="flex flex-col gap-6 py-16">
+          {links.map((link) => (
             <Link
-              key={index}
+              key={link.href}
               href={link.href}
-              className={`capitalize font-bold text-[#746B5F] transition-all text-lg ${
+              className={`capitalize font-semibold text-[#000000] transition-all text-lg ${
                 link.href === pathname
-                  ? "border-b-2 border-[#A28E66] pb-1"
-                  : "hover:text-[#A28E66]"
+                  ? "border-b-2 border-[#2c3fe9] pb-1 text-[#000000]"
+                  : "hover:text-yellow-500"
               }`}
             >
               {link.label}

@@ -3,29 +3,32 @@ import Nav from "./Nav";
 import MobileNav from "./MobileNav";
 import Link from "next/link";
 import { Phone } from "lucide-react";
+import Image from "next/image";
 
 const Header = () => {
   return (
     <div className="w-full">
-      <header className="container py-5 relative z-10 flex items-center justify-between px-4 sm:px-6 md:px-8 lg:px-12">
+      <header className="fixed top-0 left-0 w-full bg-white shadow-md z-50 py-4 flex items-center justify-between px-4 sm:px-6 md:px-8 lg:px-12">
         {/* Logo */}
-        <Link href="/">
-          <div className="flex items-center space-x-2">
-            <div className="relative w-10 h-10">
-              <div className="absolute inset-0 w-10 h-10 bg-yellow-500 transform rotate-45"></div>
-              <div className="absolute inset-0 w-8 h-8 bg-blue-600 transform rotate-45 left-1 top-1"></div>
-            </div>
-            <h1 className="text-lg font-semibold">PlumPro</h1>
-          </div>
+        <Link href="/" className="flex items-center space-x-3">
+          <Image
+            src="/assets/logo.png"
+            width={100}
+            height={30}
+            alt="PlumPro Logo"
+            priority
+            className="object-contain"
+          />
+          <h1 className="text-lg font-semibold  md:block">PlumPro</h1>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex gap-6 z-10">
+        <nav className="hidden lg:flex gap-6">
           <Nav />
         </nav>
 
         {/* Mobile Navigation */}
-        <div className="block lg:hidden z-10">
+        <div className="block lg:hidden">
           <MobileNav />
         </div>
 
@@ -38,6 +41,9 @@ const Header = () => {
           </div>
         </div>
       </header>
+
+      {/* Add spacing to avoid content being hidden under the sticky header */}
+      <div className="h-20"></div>
     </div>
   );
 };

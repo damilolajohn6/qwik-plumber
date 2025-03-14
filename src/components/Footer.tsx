@@ -1,3 +1,5 @@
+import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { FaFacebook, FaLinkedin, FaInstagram } from "react-icons/fa";
 
@@ -8,11 +10,18 @@ const Footer: React.FC = () => {
         {/* Left Section */}
         <div>
           <div className="flex items-center space-x-2 mb-4">
-            <div className="relative w-10 h-10">
-              <div className="absolute inset-0 w-10 h-10 bg-yellow-500 transform rotate-45"></div>
-              <div className="absolute inset-0 w-8 h-8 bg-blue-600 transform rotate-45 left-1 top-1"></div>
+            <div className="flex justify-center mb-8">
+              <Link href="/">
+                <Image
+                  src="/assets/logo.png"
+                  width={120}
+                  height={40}
+                  alt="PlumPro Logo"
+                  priority
+                />
+              </Link>
             </div>
-            <span className="text-xl font-semibold">PlubPro S</span>
+            <span className="text-xl font-semibold">PlubPro Solutions</span>
           </div>
           <p className="text-sm mb-4">
             Stay updated and engage with us on social media! Follow us for the
